@@ -1,0 +1,26 @@
+{
+    "name": "Medie CVV",
+    "version": "0.1.0",
+    "description": "Visualizzare le medie dei voti su Classeviva - Di Fabrizio Gasparini",
+    "icons": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+    },
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["https://web.spaggiari.eu/*"],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+      },
+      "default_title": "Medie CVV",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3,
+    "content_scripts": [{
+        "matches": ["https://web.spaggiari.eu/*"],
+        "js": ["main.js"]
+    }]
+}
