@@ -1,6 +1,6 @@
 var link = window.location.href
 
-if(link == 'https://web.spaggiari.eu/cvv/app/default/genitori_voti.php') {
+if(link.includes('https://web.spaggiari.eu/cvv/app/default/genitori_voti.php')) {
     var riga_materie = document.getElementsByClassName("riga_materia_componente")
 
     var colorID = 0
@@ -79,8 +79,44 @@ if(link == 'https://web.spaggiari.eu/cvv/app/default/genitori_voti.php') {
     media_totale.classList.add("blacktext")
     media_totale.innerText = "MEDIA TOTALE: " + (media_tot / materie_tot).toFixed(1)
     document.getElementsByClassName("page-container")[0].append(media_totale)
+
+
+    document.body.style.backgroundColor = "#202020"
+    document.body.style.height = "2hrem"
+    
+    document.getElementsByClassName("page-container")[0].style.backgroundColor = "#303030"
+    document.getElementsByClassName("navbar")[0].style.backgroundColor = "#252525"
+    document.getElementById("tabs").style.backgroundColor = "#303030"
+    document.getElementById("tabs").style.border = "unset"
+    document.getElementById("S1").style.backgroundColor = "#303030"
+    document.getElementById("S1").children[2].style.backgroundColor = "#303030"
+    document.getElementsByClassName("table_sessione")[0].style.backgroundColor = "#303030"
+    
+    const riga =  document.querySelectorAll('[colspan="2"]')
+    for (let index = 0; index < riga.length; index++) {
+        const element = riga[index];
+        element.style.backgroundColor = "#303030"
+
+        if(element.classList.contains("f_reg_voto_sfo2"))
+        {
+            element.parentElement.removeChild(element)
+        }
+        else
+        {
+            element.style.border = "solid 1px #303030"
+        }
+    }
+    
+    const mat =  document.querySelectorAll('[colspan="16"]')
+    for (let index = 0; index < mat.length; index++) {
+        const element = mat[index];
+        element.style.backgroundColor = "#303030"
+        element.style.color = "#fff"
+        element.classList.remove("blacktext");
+        element.classList.remove("graytext");
+    }
 }
-if(link == "https://web.spaggiari.eu/home/app/default/menu_webinfoschool_genitori.php") {
+if(link.includes("https://web.spaggiari.eu/home/app/default/menu_webinfoschool_genitori.php")) {
     var container = document.getElementById("data_table")
     
     var item = document.getElementsByClassName("griglia rigtab")[0]
@@ -151,15 +187,15 @@ if(link.includes("https://web.spaggiari.eu/fml/app/default/agenda_studenti.php")
         const element = fcbutton[index];
         element.style = "background-position : unset; background-image: linear-gradient(to bottom, #202020, #353535); border: 1px solid #505050; background-repeat: unset; color: #fff;"
     }
-
+    
     const fcwg = document.getElementsByClassName("fc-widget-content")
-
+    
     for (let index = 0; index < fcwg.length; index++) {
         const element = fcwg[index];
         element.style.border = "1px solid #505050"
     }
     const fcom = document.getElementsByClassName("fc-other-month")
-
+    
     for (let index = 0; index < fcom.length; index++) {
         const element = fcom[index];
         element.style.backgroundColor = "rgb(30,30,30)"
@@ -167,15 +203,15 @@ if(link.includes("https://web.spaggiari.eu/fml/app/default/agenda_studenti.php")
     
     document.querySelector('[colspan="21"]').style.color = "#fff"
     document.querySelector(".luogo").innerText = "|"
-
+    
     document.querySelector(".fc-today").style = "border: 1px solid rgb(80, 80, 80); background-color: rgb(37,37,37)"
     document.querySelector(".fc-state-highlight").style = "border: 1px solid rgb(80, 80, 80); background-color: rgb(37,37,37)"
-
+    
     document.getElementsByClassName("fc-header-center")[0].parentNode.removeChild(document.getElementsByClassName("fc-header-center")[0])
-
+    
     document.querySelector('[alt="lezioni"]').src = "https://i.ibb.co/fYxdqzH/indietro.png"
     document.querySelector('[alt="voti"]').src = "https://i.ibb.co/nkwfhsT/orario.png"
     document.querySelector('[alt="Esportazione Excel"]').src = "https://i.ibb.co/T4cGqCG/excel.png"
-
+    
     document.getElementById("nota_classe_scorr").parentNode.parentNode.style.backgroundColor = "rgb(40,40,40)"
 }
