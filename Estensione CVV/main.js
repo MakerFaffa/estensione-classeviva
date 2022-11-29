@@ -96,7 +96,7 @@ if(link.includes('https://web.spaggiari.eu/cvv/app/default/genitori_voti.php')) 
     for (let index = 0; index < riga.length; index++) {
         const element = riga[index];
         element.style.backgroundColor = "#303030"
-
+        
         if(element.classList.contains("f_reg_voto_sfo2"))
         {
             element.parentElement.removeChild(element)
@@ -134,6 +134,65 @@ if(link.includes("https://web.spaggiari.eu/home/app/default/menu_webinfoschool_g
     clone.querySelectorAll('[colspan="22"]')[0].querySelector('a').href = "				../../../cvv/app/default/genitori_voti.php"
     
     container.appendChild(clone)
+    
+    document.body.style.backgroundColor = "#202020"
+    document.getElementsByClassName("page-container")[0].style.backgroundColor = "#303030"
+    document.getElementsByClassName("page-container")[0].style.height = "100%"
+    
+    const rigtab = document.getElementsByClassName("rigtab")
+    
+    for (let index = 0; index < rigtab.length; index++) {
+        const element = rigtab[index];
+        element.style.borderLeft = "0"
+        element.style.borderRight = "0"
+        
+        const rigtabch = rigtab[index].children
+        
+        for (let index = 0; index < rigtabch.length; index++) {
+            const elementc = rigtabch[index];
+            elementc.style.borderLeft = "0"
+            elementc.style.borderRight = "0"
+            
+            if(elementc.getAttribute("colspan") == "3")
+            {
+                elementc.children[0].removeChild(elementc.children[0].children[0])
+            }
+        }
+        
+    }
+
+    const span = document.querySelectorAll('span')
+    
+    for (let index = 0; index < span.length; index++) {
+        const element = span[index];
+        element.style.color = "#fff"
+    }
+    const p = document.querySelectorAll('p')
+    
+    for (let index = 0; index < p.length; index++) {
+        const element = p[index];
+        if(!element.classList.contains("handwriting_2")) element.style.color = "#fff"
+    }
+    const font = document.querySelectorAll('font')
+    
+    for (let index = 0; index < font.length; index++) {
+        const element = font[index];
+        element.style.color = "#fff"
+    }
+    const h1 = document.querySelectorAll('h1')
+    
+    for (let index = 0; index < h1.length; index++) {
+        const element = h1[index];
+        element.style.color = "#fff"
+    }
+    const h2 = document.querySelectorAll('h2')
+    
+    for (let index = 0; index < h2.length; index++) {
+        const element = h2[index];
+        element.style.color = "#fff"
+    }
+
+    const footer = document.getElementById("footer_copyright").innerText = "©2022 Engineered & Powered by Gruppo Spaggiari Parma S.p.A. - Divisione Infoschool - P.IVA 00150470342 - Migliorato da Fabrizio Gasparini"
 }    
 
 
